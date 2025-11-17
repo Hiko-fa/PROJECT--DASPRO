@@ -34,10 +34,8 @@ struct Akun {
     char password[30];
 };
 
-/* portable sleep in milliseconds */
 void sleep_ms(int ms) {
-#ifdef _WIN32
-    Sleep(ms);
+#ifdef _WIN32;
 #else
     usleep(ms * 1000);
 #endif
@@ -60,7 +58,6 @@ void loading(const char *msg) {
     printf("\n");
 }
 
-/* case-insensitive substring search (portable) */
 int contains_case_insensitive(const char *haystack, const char *needle) {
     if (!haystack || !needle) return 0;
     size_t hlen = strlen(haystack), nlen = strlen(needle);
